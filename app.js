@@ -3,8 +3,10 @@ const dotenv = require('dotenv');
 const session = require('express-session')
 
 dotenv.config();
-const authRoutes = require('./routes/calendlyauthRoutes');
+
 const userRoutes = require('./routes/calendlyuserRoutes');
+const githubUserRoutes = require('./routes/githubuserRoutes')
+const OAuthRoutes = require('./routes/OAuthRoutes')
 
 const app = express();
 
@@ -21,8 +23,12 @@ app.use(session({
   }));
   
 
-app.use('/calendlyAuth', authRoutes);
-app.use('/calendlyUser', userRoutes)
+
+app.use('/calendlyuser', userRoutes);
+
+app.use('/oauth', OAuthRoutes)
+
+app.use('/githubuser', githubUserRoutes)
 
 
 // Start the Express server

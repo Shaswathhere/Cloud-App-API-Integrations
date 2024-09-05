@@ -1,5 +1,5 @@
 const express = require('express');
-const UserController = require('../controllers/calendlyuserController');
+const UserController = require('../controllers/calendlyUserController');
 
 const router = express.Router();
 
